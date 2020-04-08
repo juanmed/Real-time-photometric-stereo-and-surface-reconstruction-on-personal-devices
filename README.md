@@ -5,10 +5,21 @@ Photometric stereo is a method that estimates an object’s surface depth and or
 
 ## Prerequisites
 
+Python3
+
 - cv2
 - screeninfo
+- vtk
 - mayavi
+- PyQt5/PySide
+- wx_Python
 - mpl_toolkits
+
+## Installation
+
+As of this fork, I modified some parts of the code to run on Ubuntu 16.04
+
+You will need to install and download a wx_Python wheel compatible with your system. Check [here](https://extras.wxpython.org/wxPython4/extras/linux/). If none, you might need to [build by yourself](https://wxpython.org/blog/2017-08-17-builds-for-linux-with-pip/index.html).
 
 
 ## Usage 

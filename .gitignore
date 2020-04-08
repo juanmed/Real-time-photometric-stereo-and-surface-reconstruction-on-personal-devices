@@ -1,0 +1,5 @@
+*.npy
+*.jpg
+__pycache__/*
+*.wheel
+*.whl

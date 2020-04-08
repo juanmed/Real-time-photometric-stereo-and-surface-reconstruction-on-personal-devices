@@ -37,7 +37,7 @@ def display(index):
     is_color = False
 
     # get the size of the screen
-    screen = screeninfo.get_monitors("osx")[screen_id]
+    screen = screeninfo.get_monitors()[screen_id]
     width, height = int(screen.width), int(screen.height)
  
     # create image
@@ -67,7 +67,7 @@ def display(index):
     cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
                           cv2.WINDOW_FULLSCREEN)
     cv2.imshow(window_name, image)
-    os.system('''/usr/bin/osascript -e 'tell app "Finder" to set frontmost of process "Python" to true' ''')
+    #os.system('''/usr/bin/osascript -e 'tell app "Finder" to set frontmost of process "Python" to true' ''')
     cv2.waitKey(40)
     
 def get_image():
