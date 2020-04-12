@@ -8,6 +8,7 @@ from scipy.sparse.linalg import svds
 from mpl_toolkits.mplot3d import Axes3D
 import random
 from mayavi import mlab
+import time
 
 INPUT_DIR = "input/"
 NUM_IN = 4
@@ -27,9 +28,12 @@ def capture(cap,img):
 
     '''
     cam, frame = cap.read()
+    # Extract left and right images from side-by-side
+    left_right_image = np.split(frame, 2, axis=1)
+    right_image = left_right_image[0]
     if(not cam):
         print('Error: webcam not running!')
-    cv2.imwrite(filename=INPUT_DIR + str(img) + '.jpg', img=frame)
+    cv2.imwrite(filename=INPUT_DIR + str(img) + '.jpg', img=right_image)
 
 
 def display(index):
@@ -72,8 +76,15 @@ def display(index):
     
 def get_image():
     cap = cv2.VideoCapture(0)
+    time.sleep(10)
+    display(1 + 1)
+    capture(cap, 1 + 1) 
+    capture(cap, 1 + 1) 
+    capture(cap, 1 + 1) 
+    capture(cap, 1 + 1) 
     for i in range(NUM_IN):
         display(i + 1)
+        time.sleep(2)
         capture(cap, i + 1)      
     cap.release()
     cv2.destroyAllWindows()
